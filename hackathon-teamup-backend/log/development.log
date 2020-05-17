@@ -1,0 +1,82 @@
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTeams (20200513091711)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200513091711"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCollaborators (20200513092050)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "collaborators" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "role" varchar, "skills" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200513092050"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateTeamMembers (20200513092101)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "team_members" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "team_id" integer, "collaborator_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200513092101"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-15 04:02:26.002926"], ["updated_at", "2020-05-15 04:02:26.002926"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.8ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bob"], ["role", "programmer"], ["skills", "Unity, JavaScript, C++"], ["created_at", "2020-05-17 07:47:10.913023"], ["updated_at", "2020-05-17 07:47:10.913023"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Joe"], ["role", "animator"], ["skills", "Unity, Maya, pixel-art"], ["created_at", "2020-05-17 07:47:10.917668"], ["updated_at", "2020-05-17 07:47:10.917668"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Danesh"], ["role", "programmer"], ["skills", "sloppy code"], ["created_at", "2020-05-17 07:47:10.921423"], ["updated_at", "2020-05-17 07:47:10.921423"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.4ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gilfoyle"], ["role", "programmer"], ["skills", "clean scalable code, dry sarcastic zings"], ["created_at", "2020-05-17 07:47:10.925144"], ["updated_at", "2020-05-17 07:47:10.925144"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Nobuo Uematsu"], ["role", "composer"], ["skills", "midi god, epic battle music"], ["created_at", "2020-05-17 07:47:10.929351"], ["updated_at", "2020-05-17 07:47:10.929351"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Foley"], ["role", "sound effects"], ["skills", "pots and pans, those cool star wars laser sounds"], ["created_at", "2020-05-17 07:47:10.933085"], ["updated_at", "2020-05-17 07:47:10.933085"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Mark Ryden"], ["role", "2D artist"], ["skills", "paint, creepy girls, the great emancipator, meat"], ["created_at", "2020-05-17 07:47:10.936777"], ["updated_at", "2020-05-17 07:47:10.936777"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCollaborator Create (0.3ms)[0m  [1m[32mINSERT INTO "collaborators" ("name", "role", "skills", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Havi"], ["role", "game design"], ["skills", "JavaScript, character design/animation"], ["created_at", "2020-05-17 07:47:10.940509"], ["updated_at", "2020-05-17 07:47:10.940509"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.5ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "PiperChat"], ["description", "new video-chat app using state-of-the-art compression"], ["created_at", "2020-05-17 07:47:10.965115"], ["updated_at", "2020-05-17 07:47:10.965115"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeam Create (0.3ms)[0m  [1m[32mINSERT INTO "teams" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Choose-Your-Own Sadventure"], ["description", "a Psychological Thriller Point-and-Click about a ghost-girl trying to learn about her past"], ["created_at", "2020-05-17 07:47:10.969242"], ["updated_at", "2020-05-17 07:47:10.969242"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.3ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 1], ["collaborator_id", 3], ["created_at", "2020-05-17 07:47:10.988697"], ["updated_at", "2020-05-17 07:47:10.988697"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.3ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 1], ["collaborator_id", 4], ["created_at", "2020-05-17 07:47:10.992480"], ["updated_at", "2020-05-17 07:47:10.992480"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.2ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 2], ["collaborator_id", 8], ["created_at", "2020-05-17 07:47:10.995870"], ["updated_at", "2020-05-17 07:47:10.995870"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.3ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 2], ["collaborator_id", 5], ["created_at", "2020-05-17 07:47:10.999134"], ["updated_at", "2020-05-17 07:47:10.999134"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.2ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 2], ["collaborator_id", 6], ["created_at", "2020-05-17 07:47:11.002327"], ["updated_at", "2020-05-17 07:47:11.002327"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.5ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 1], ["collaborator_id", 6], ["created_at", "2020-05-17 07:47:11.022756"], ["updated_at", "2020-05-17 07:47:11.022756"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTeamMember Create (0.3ms)[0m  [1m[32mINSERT INTO "team_members" ("team_id", "collaborator_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["team_id", 2], ["collaborator_id", 1], ["created_at", "2020-05-17 07:47:11.027359"], ["updated_at", "2020-05-17 07:47:11.027359"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTeamMember Load (0.1ms)[0m  [1m[34mSELECT "team_members".* FROM "team_members" ORDER BY "team_members"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
