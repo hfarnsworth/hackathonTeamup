@@ -80,3 +80,454 @@ Migrating to CreateTeamMembers (20200513092101)
   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" ORDER BY "teams"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mTeamMember Load (0.1ms)[0m  [1m[34mSELECT "team_members".* FROM "team_members" ORDER BY "team_members"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-05-17 03:18:25 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mymac/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mymac/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.6ms | Allocations: 480)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 2632)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-05-17 03:18:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/collaborators" for ::1 at 2020-05-17 03:18:37 -0500
+Processing by CollaboratorsController#index as HTML
+  [1m[36mCollaborator Load (0.5ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 1.1ms | Allocations: 7732)
+
+
+Started GET "/teams" for ::1 at 2020-05-17 07:35:10 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.9ms | Allocations: 9125)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:35:46 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms | Allocations: 5435)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:35:47 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 960)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:35:47 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 975)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:35:48 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 960)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:36:04 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms | Allocations: 5376)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:36:20 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms | Allocations: 5423)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teammembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/collaborators" for ::1 at 2020-05-17 07:36:46 -0500
+Processing by CollaboratorsController#index as HTML
+  [1m[36mCollaborator Load (0.4ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.9ms | Allocations: 5740)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teammembers in model Collaborator):
+  
+app/controllers/collaborators_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:37:22 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 0.0ms | Allocations: 76621)
+
+
+  [1m[36mCACHE Team Load (0.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NameError (undefined local variable or method `collaborators' for #<TeamsController:0x00007fdc9996bc70>
+Did you mean?  collaborators_url
+               collaborator_url):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:37:39 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms | Allocations: 5392)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teammembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:43:10 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms | Allocations: 5377)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :teammembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:43:28 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms | Allocations: 5423)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:43:29 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:43:29 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:43:29 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 1488)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:43:30 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1446)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:02 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms | Allocations: 5377)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:03 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:03 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:03 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:03 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1281)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:04 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1591)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:04 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1592)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:04 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1093)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:25 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms | Allocations: 5440)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :TeamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:26 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :TeamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:26 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :TeamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:26 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 980)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :TeamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:26 -0500
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 961)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :TeamMembers in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:31 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms | Allocations: 5422)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:32 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.8ms | Allocations: 5403)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:32 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1690)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:32 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms | Allocations: 1027)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:46:33 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2502)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :team_members in model Team):
+  
+app/controllers/teams_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-17 07:47:03 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as HTML
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.4ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 28.4ms | ActiveRecord: 1.9ms | Allocations: 18858)
+
+

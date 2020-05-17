@@ -5,12 +5,12 @@ class CollaboratorsController < ApplicationController
   def index
     @collaborators = Collaborator.all
 
-    render json: @collaborators
+    render json: @collaborators, include: :teams
   end
 
   # GET /collaborators/1
   def show
-    render json: @collaborator
+    render json: @collaborator, include: :teams
   end
 
   # POST /collaborators
