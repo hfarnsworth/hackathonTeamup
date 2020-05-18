@@ -1,13 +1,8 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
+import teams from "./teams"
+import collaborators from "./collaborators"
 
-
-
-
-
-const rootReducer = combineReducers({
-
-});
-
-
-
-export default rootReducer;
+export default combineReducers({
+  teams,
+  collaborators
+})

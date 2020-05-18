@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
 
-    render json: @teams, include: 'collaborators'
+    render json: @teams, include: :collaborators
   end
 
   # GET /teams/1
@@ -46,6 +46,6 @@ class TeamsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def team_params
-      params.fetch(:team, {})
+      params.require(:team).permit(:name, :description, :collaborators => [] )
     end
 end

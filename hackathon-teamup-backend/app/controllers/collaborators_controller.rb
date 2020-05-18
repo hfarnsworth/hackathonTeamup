@@ -46,6 +46,6 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def collaborator_params
-      params.fetch(:collaborator, {})
+      params.require(:collaborator).permit(:name, :role, :skills, :teams => [] )
     end
 end
