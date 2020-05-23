@@ -6,11 +6,11 @@ const Team = ({ team }) => {
       ? <div className="Team">
           <h3>{team.name}</h3>
           <p>Project Description: {team.description}</p>
-          <p><ul>{team.collaborators.map ( collaborator =>
-            <li>
+          <ul>{team.collaborators.map ( collaborator =>
+            <li key={collaborator.id}>
               {collaborator.name}
             </li>
-          )}</ul></p>
+          )}</ul>
         </div>
       : <h3>...Still Loading...</h3>
   )

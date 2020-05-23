@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { createTeam } from '../actions/teams';
 
 class NewTeam extends Component {
   state = {
@@ -8,8 +10,7 @@ class NewTeam extends Component {
 
   handleOnChange = event => {
     this.setState({
-      name: event.target.value,
-      description: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -18,16 +19,16 @@ class NewTeam extends Component {
     this.props.createTeam(this.state)
     this.setState({
       name: '',
-      description: '',
+      description: ''
     })
   }
 
   render() {
     return(
-      <div>
+      <div className="newTeam">
         <form onSubmit={this.handleOnSubmit} >
-          <input type="text" onChange={this.handleOnChange} value={this.state.name} />
-          <input type="text" onChange={this.handleOnChange} value={this.state.description} />
+          <p><label>Team Name:</label><input name="name" type="text" onChange={this.handleOnChange} value={this.state.name} /></p>
+          <p><label>Project Description:</label><input name="description" type="text" onChange={this.handleOnChange} value={this.state.description} /></p>
           <input type="submit" onSubmit={this.handleOnSubmit} />
         </form>
       </div>
@@ -35,4 +36,4 @@ class NewTeam extends Component {
   }
 }
 
-export default NewTeam
+export default connect(null,{ createTeam })(NewTeam)

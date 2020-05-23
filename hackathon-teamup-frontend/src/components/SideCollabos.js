@@ -7,7 +7,7 @@ const SideCollabos = ({ collaborators }) => {
   ))
   return(
     <div className="SideBar">
-    <h4>Collaborator List </h4>
+    <h4>List of Collaborators</h4>
       <ul>{collaboratorLinks}</ul>
     </div>
   )
