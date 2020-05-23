@@ -975,3 +975,453 @@ Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.4ms | Allocations: 761
 Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 1.2ms | Allocations: 16908)
 
 
+Started GET "/teams" for ::1 at 2020-05-22 07:36:41 -0500
+Started GET "/collaborators" for ::1 at 2020-05-22 07:36:41 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as */*
+Processing by CollaboratorsController#index as */*
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mCollaborator Load (0.8ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  [1m[36mCollaborator Load (0.4ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+Completed 200 OK in 36ms (Views: 31.4ms | ActiveRecord: 1.5ms | Allocations: 8377)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 46ms (Views: 42.8ms | ActiveRecord: 1.8ms | Allocations: 16804)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-22 07:37:42 -0500
+Started GET "/teams" for ::1 at 2020-05-22 07:37:42 -0500
+Processing by CollaboratorsController#index as */*
+Processing by TeamsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+Completed 200 OK in 22ms (Views: 21.5ms | ActiveRecord: 0.5ms | Allocations: 8112)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 71ms (Views: 68.2ms | ActiveRecord: 2.5ms | Allocations: 16913)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-22 14:41:11 -0500
+Started GET "/teams" for ::1 at 2020-05-22 14:41:11 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (1.0ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+Processing by TeamsController#index as */*
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.3ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.9ms | Allocations: 8272)
+
+
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 53ms (Views: 50.1ms | ActiveRecord: 2.4ms | Allocations: 17273)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-22 14:41:53 -0500
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+Started GET "/teams" for ::1 at 2020-05-22 14:41:53 -0500
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+Processing by TeamsController#index as */*
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.5ms | Allocations: 7628)
+
+
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 1.3ms | Allocations: 17550)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-22 14:42:05 -0500
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Started GET "/teams" for ::1 at 2020-05-22 14:42:05 -0500
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+Processing by TeamsController#index as */*
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.4ms | Allocations: 8353)
+
+
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 1.2ms | Allocations: 17344)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-22 14:43:59 -0500
+Started GET "/teams" for ::1 at 2020-05-22 14:43:59 -0500
+Processing by CollaboratorsController#index as */*
+Processing by TeamsController#index as */*
+  [1m[36mCollaborator Load (0.3ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.5ms | Allocations: 7606)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 1.9ms | Allocations: 16909)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-23 01:45:42 -0500
+Started GET "/teams" for ::1 at 2020-05-23 01:45:42 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CollaboratorsController#index as */*
+Processing by TeamsController#index as */*
+  [1m[36mCollaborator Load (0.6ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (1.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  [1m[36mCollaborator Load (0.3ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+Completed 200 OK in 42ms (Views: 34.7ms | ActiveRecord: 0.9ms | Allocations: 8361)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 66ms (Views: 58.4ms | ActiveRecord: 3.1ms | Allocations: 17167)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-23 01:46:55 -0500
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+Started GET "/teams" for ::1 at 2020-05-23 01:46:55 -0500
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.4ms | Allocations: 7777)
+
+
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 1.3ms | Allocations: 17535)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-23 01:46:56 -0500
+Started GET "/teams" for ::1 at 2020-05-23 01:46:56 -0500
+Processing by CollaboratorsController#index as */*
+Processing by TeamsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.6ms | Allocations: 8112)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 1.2ms | Allocations: 16905)
+
+
+Started GET "/teams" for ::1 at 2020-05-23 11:31:01 -0500
+Started GET "/collaborators" for ::1 at 2020-05-23 11:31:01 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TeamsController#index as */*
+Processing by CollaboratorsController#index as */*
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mCollaborator Load (0.4ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.5ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 1.6ms | Allocations: 7156)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 1.6ms | Allocations: 16806)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-23 11:33:43 -0500
+Started GET "/teams" for ::1 at 2020-05-23 11:33:43 -0500
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.4ms | Allocations: 12986)
+
+
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 47ms (Views: 45.3ms | ActiveRecord: 1.1ms | Allocations: 16416)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-23 11:38:27 -0500
+Started GET "/teams" for ::1 at 2020-05-23 11:38:27 -0500
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.6ms | Allocations: 7784)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (2.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 53ms (Views: 48.4ms | ActiveRecord: 4.0ms | Allocations: 15510)
+
+
+Started GET "/collaborators" for ::1 at 2020-05-23 11:38:31 -0500
+Started GET "/teams" for ::1 at 2020-05-23 11:38:31 -0500
+Processing by CollaboratorsController#index as */*
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 1]]
+Processing by TeamsController#index as */*
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 2]]
+  [1m[36mCollaborator Load (0.1ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 3]]
+  [1m[36mCollaborator Load (0.2ms)[0m  [1m[34mSELECT "collaborators".* FROM "collaborators" INNER JOIN "team_members" ON "collaborators"."id" = "team_members"."collaborator_id" WHERE "team_members"."team_id" = ?[0m  [["team_id", 2]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  ↳ app/controllers/teams_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 4]]
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.4ms | Allocations: 7545)
+
+
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 5]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 6]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 7]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" INNER JOIN "team_members" ON "teams"."id" = "team_members"."team_id" WHERE "team_members"."collaborator_id" = ?[0m  [["collaborator_id", 8]]
+  ↳ app/controllers/collaborators_controller.rb:8:in `index'
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 1.3ms | Allocations: 17224)
+
+

@@ -10,7 +10,7 @@ const TeamsContainer = ({ teams }) => {
         <SideTeams teams={teams} />
 
         <Switch>
-          <Route exact path="/team/:id" render={(routerProps)=> {
+          <Route exact path="/teams/:id" render={(routerProps)=> {
             const team = teams.find(team => team.id === parseInt(routerProps.match.params.id))
             return <Team {...routerProps} team={team}/>
           }}/>

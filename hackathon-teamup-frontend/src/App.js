@@ -36,9 +36,11 @@ class App extends Component {
 
 // const mapStateToProps = state => {
 //   return {
-//     team: state.team,
-//     collaborator: state.collaborator
+//     teams: state.teams,
+//     collaborators: state.collaborators
 //   }
 // }
+
+// const mapStateToProps = ({ teams, collaborators }) => ({ teams, collaborators })
  
 export default connect(null, { fetchCollaborators, fetchTeams })(App)

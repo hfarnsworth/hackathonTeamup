@@ -1,9 +1,9 @@
 export default (state=[], action) => {
   switch (action.type) {
-    case "LOAD_TEAMS":
-      return action.teams
-    case "ADD_TEAM":
-      return state.concat(action.team)
+    case "LOAD_COLLABORATORS":
+      return action.collaborators
+    case "ADD_COLLABORATOR":
+      return state.concat(action.collaborator)
     default:
       return state
   }

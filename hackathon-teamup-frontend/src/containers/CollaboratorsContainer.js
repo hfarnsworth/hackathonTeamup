@@ -10,7 +10,7 @@ const CollaboratorsContainer = ({ collaborators }) => {
         <SideCollabos collaborators={collaborators} />
 
         <Switch>
-          <Route exact path="/collaborator/:id" render={(routerProps)=> {
+          <Route exact path="/collaborators/:id" render={(routerProps)=> {
             const collaborator = collaborators.find(collaborator => collaborator.id === parseInt(routerProps.match.params.id))
             return <Collaborator {...routerProps} collaborator={collaborator}/>
           }}/>
