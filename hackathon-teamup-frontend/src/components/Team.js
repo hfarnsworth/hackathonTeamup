@@ -12,7 +12,7 @@ const Team = ({ team }) => {
             </li>
           )}</ul>
         </div>
-      : <h3>...Still Loading...</h3>
+      : <h3>...No Team Here...</h3>
   )
 }
 

@@ -13,7 +13,7 @@ const Collaborator = ({ collaborator }) => {
             </li>
           )}</ul>
         </div>
-      : <h3>...Still Loading...</h3>
+      : <h3>...No Collaborator Here...</h3>
   )
 }
 
