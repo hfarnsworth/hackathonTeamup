@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 const SideCollabos = ({ collaborators, deleteCollaborator }) => {
 
-  const handleDeleteClick = (collaborator) => {
+  const handleDeleteClick = collaborator => {
     deleteCollaborator(collaborator)
   }
 
   const collaboratorLinks = collaborators.map ( collaborator => (
-    <li key = {collaborator.id}><Link key={collaborator.id} to={`/collaborators/${collaborator.id}`}>{collaborator.name}</Link><button onClick={() => handleDeleteClick(collaborator)}>Delete</button></li>
+    <li key={collaborator.id}><Link key={collaborator.id} to={`/collaborators/${collaborator.id}`}>{collaborator.name}</Link><button onClick={() => handleDeleteClick(collaborator)}>Delete</button></li>
   ))
+
   return(
     <div className="SideBar">
     <h4>List of Collaborators</h4>

@@ -1,10 +1,15 @@
+const API = "http://localhost:3000/"
+const teamsAPI = API + "teams/"
+
 const loadTeams = teams => ({ type: "LOAD_TEAMS", teams })
 
 const addTeam = team => ({ type: "ADD_TEAM", team })
 
+const removeTeam = team => ({ type: "DELETE_TEAM", team })
+
 export const fetchTeams = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/teams")
+    return fetch(teamsAPI)
       .then(resp => resp.json())
       .then(teams => {
         if (teams.error) {
@@ -17,12 +22,12 @@ export const fetchTeams = () => {
   }
 }
 
-export const createTeam = (team) => {
+export const createTeam = team => {
   return dispatch => {
     const body = {
       team
     }
-    return fetch("http://localhost:3000/teams", {
+    return fetch(teamsAPI, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,17 +47,11 @@ export const createTeam = (team) => {
   }
 }
 
-export const deleteTeam = (teamId) => {
+export const deleteTeam = team => {
   return dispatch => {
-    return fetch(`http://localhost:3000/teams/${teamId}`, {
+    return fetch(teamsAPI + team.id, {
       method: "DELETE"
     })
-      .then(r => r.json())
-      .then(team => {
-        dispatch({
-          type: "DELETE_TEAM",
-          payload: team
-        })
-      })
+    .then(dispatch(removeTeam(team)))
   }
 }

@@ -9,14 +9,14 @@ class NewCollaborator extends Component {
     skills: '',
   };
 
-  handleOnChange = event => {
+  handleOnChange = e => {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  handleOnSubmit = event => {
-    event.preventDefault();
+  handleOnSubmit = e => {
+    e.preventDefault();
     this.props.createCollaborator(this.state)
     this.setState({
       name: '',

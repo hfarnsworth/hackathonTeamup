@@ -22,7 +22,7 @@ export const fetchCollaborators = () => {
   }
 }
 
-export const createCollaborator = (collaborator) => {
+export const createCollaborator = collaborator => {
   return dispatch => {
     const body = {
       collaborator
@@ -47,11 +47,11 @@ export const createCollaborator = (collaborator) => {
   }
 }
 
-export const deleteCollaborator = (collaborator) => {
+export const deleteCollaborator = collaborator => {
   return dispatch => {
     return fetch(collaboratorsAPI + collaborator.id, {
       method: "DELETE"
     })
-      .then(dispatch(removeCollaborator(collaborator)))
+    .then(dispatch(removeCollaborator(collaborator)))
   }
 }

@@ -8,14 +8,14 @@ class NewTeam extends Component {
     description: '',
   };
 
-  handleOnChange = event => {
+  handleOnChange = e => {
     this.setState({
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  handleOnSubmit = event => {
-    event.preventDefault();
+  handleOnSubmit = e => {
+    e.preventDefault();
     this.props.createTeam(this.state)
     this.setState({
       name: '',
