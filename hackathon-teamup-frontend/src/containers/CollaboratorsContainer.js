@@ -3,31 +3,26 @@ import Collaborator from '../components/Collaborator.js'
 import SideCollabos from '../components/SideCollabos.js'
 import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
+import { deleteCollaborator } from '../actions/collaborators';
 
-const CollaboratorsContainer = ({ collaborators }) => {
+class CollaboratorsContainer extends React.Component {
+  render() {
     return (
       <div className="CollaboratorsContainer">
-        <SideCollabos collaborators={collaborators} />
+        <SideCollabos collaborators={this.props.collaborators} deleteCollaborator={this.props.deleteCollaborator} />
 
         <Switch>
           <Route exact path="/collaborators/:id" render={(routerProps)=> {
-            const collaborator = collaborators.find(collaborator => collaborator.id === parseInt(routerProps.match.params.id))
+            const collaborator = this.props.collaborators.find(collaborator => collaborator.id === parseInt(routerProps.match.params.id))
             return <Collaborator {...routerProps} collaborator={collaborator}/>
           }}/>
         </Switch>
 
       </div>
     )
+        }
 }
 
-// long-hand way of writing mstp function:
-// const mapStateToProps = state => {
-//   return {
-//     cars: state.cars
-//   }
-// }
-
-// I could also use destructuring and arrow function implicit return:
 const mapStateToProps = ({ collaborators }) => ({ collaborators })
 
-export default connect(mapStateToProps)(CollaboratorsContainer)
+export default connect(mapStateToProps,{deleteCollaborator})(CollaboratorsContainer)

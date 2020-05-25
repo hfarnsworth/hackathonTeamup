@@ -1,6 +1,6 @@
-export const loadTeams = teams => ({ type: "LOAD_TEAMS", teams })
+const loadTeams = teams => ({ type: "LOAD_TEAMS", teams })
 
-export const addTeam = team => ({ type: "ADD_TEAM", team })
+const addTeam = team => ({ type: "ADD_TEAM", team })
 
 export const fetchTeams = () => {
   return dispatch => {

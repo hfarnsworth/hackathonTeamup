@@ -20,14 +20,6 @@ const TeamsContainer = ({ teams }) => {
     )
 }
 
-// long-hand way of writing mstp function:
-// const mapStateToProps = state => {
-//   return {
-//     cars: state.cars
-//   }
-// }
-
-// I could also use destructuring and arrow function implicit return:
 const mapStateToProps = ({ teams }) => ({ teams })
 
 export default connect(mapStateToProps)(TeamsContainer)

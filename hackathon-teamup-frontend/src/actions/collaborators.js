@@ -1,10 +1,15 @@
-export const loadCollaborators = collaborators => ({ type: "LOAD_COLLABORATORS", collaborators })
+const API = "http://localhost:3000/"
+const collaboratorsAPI = API + "collaborators/"
 
-export const addCollaborator = collaborator => ({ type: "ADD_COLLABORATOR", collaborator })
+const loadCollaborators = collaborators => ({ type: "LOAD_COLLABORATORS", collaborators })
+
+const addCollaborator = collaborator => ({ type: "ADD_COLLABORATOR", collaborator })
+
+const removeCollaborator = collaborator => ({type: "DELETE_COLLABORATOR", collaborator })
 
 export const fetchCollaborators = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/collaborators")
+    return fetch(collaboratorsAPI)
       .then(resp => resp.json())
       .then(collaborators => {
         if (collaborators.error) {
@@ -22,7 +27,7 @@ export const createCollaborator = (collaborator) => {
     const body = {
       collaborator
     }
-    return fetch("http://localhost:3000/collaborators", {
+    return fetch(collaboratorsAPI, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,17 +47,11 @@ export const createCollaborator = (collaborator) => {
   }
 }
 
-export const deleteCollaborator = (collaboratorId) => {
+export const deleteCollaborator = (collaborator) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/collaborators/${collaboratorId}`, {
+    return fetch(collaboratorsAPI + collaborator.id, {
       method: "DELETE"
     })
-      .then(r => r.json())
-      .then(collaborator => {
-        dispatch({
-          type: "DELETE_COLLABORATOR",
-          payload: collaborator
-        })
-      })
+      .then(dispatch(removeCollaborator(collaborator)))
   }
 }
