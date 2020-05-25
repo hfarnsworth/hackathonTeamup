@@ -14,7 +14,7 @@ class CollaboratorsContainer extends React.Component {
         <Switch>
           <Route exact path="/collaborators/:id" render={ routerProps => {
             const collaborator = this.props.collaborators.find(collaborator => collaborator.id === parseInt(routerProps.match.params.id))
-            return <Collaborator {...routerProps} collaborator={collaborator}/>
+            return <Collaborator {...routerProps} collaborator={collaborator} teams={this.props.teams}/>
           }}/>
         </Switch>
 
@@ -23,6 +23,6 @@ class CollaboratorsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ collaborators }) => ({ collaborators })
+const mapStateToProps = ({ collaborators, teams }) => ({ collaborators, teams })
 
 export default connect(mapStateToProps,{deleteCollaborator})(CollaboratorsContainer)

@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import TeamSelect from './TeamSelect.js';
 
-const Collaborator = ({ collaborator }) => {
+const Collaborator = ({ collaborator, teams }) => {
+
   return (
     collaborator
       ? <div className="Collaborator">
@@ -12,6 +14,7 @@ const Collaborator = ({ collaborator }) => {
               {team.name}
             </li>
           )}</ul>
+          <TeamSelect collaborator={collaborator} availableTeams={teams.filter(({ name: id1 }) => !collaborator.teams.some(({ name: id2 }) => id2 === id1))}/>
         </div>
       : <h3>...No Collaborator Here...</h3>
   )

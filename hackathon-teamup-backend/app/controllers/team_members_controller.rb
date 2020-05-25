@@ -4,7 +4,7 @@ class TeamMembersController < ApplicationController
 
   # POST /team_members
   def create
-    @team_member = TeamMembers.new(team_member_params)
+    @team_member = TeamMember.new(team_member_params)
 
     if @team_member.save
       render json: @team_member, status: :created, location: @team_member
