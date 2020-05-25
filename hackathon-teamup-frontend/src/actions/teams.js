@@ -41,3 +41,18 @@ export const createTeam = (team) => {
       })
   }
 }
+
+export const deleteTeam = (teamId) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/teams/${teamId}`, {
+      method: "DELETE"
+    })
+      .then(r => r.json())
+      .then(team => {
+        dispatch({
+          type: "DELETE_TEAM",
+          payload: team
+        })
+      })
+  }
+}

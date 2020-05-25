@@ -41,3 +41,18 @@ export const createCollaborator = (collaborator) => {
       })
   }
 }
+
+export const deleteCollaborator = (collaboratorId) => {
+  return dispatch => {
+    return fetch(`http://localhost:3000/collaborators/${collaboratorId}`, {
+      method: "DELETE"
+    })
+      .then(r => r.json())
+      .then(collaborator => {
+        dispatch({
+          type: "DELETE_COLLABORATOR",
+          payload: collaborator
+        })
+      })
+  }
+}

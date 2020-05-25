@@ -3,7 +3,7 @@ class CollaboratorsController < ApplicationController
 
   # GET /collaborators
   def index
-    @collaborators = Collaborator.all
+    @collaborators = Collaborator.all.sort_by{ |c| c[:name] }
 
     render json: @collaborators, include: :teams
   end
