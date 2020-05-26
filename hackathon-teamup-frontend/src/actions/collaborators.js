@@ -11,14 +11,9 @@ export const fetchCollaborators = () => {
   return dispatch => {
     return fetch(collaboratorsAPI)
       .then(resp => resp.json())
-      .then(collaborators => {
-        if (collaborators.error) {
-          alert(collaborators.error)
-        } else {
-          console.log(collaborators)
-          dispatch(loadCollaborators(collaborators))
-        }
-      })
+      .then(collaborators => 
+        dispatch(loadCollaborators(collaborators))
+      )
   }
 }
 
@@ -37,8 +32,8 @@ export const createCollaborator = collaborator => {
     })
       .then(r => r.json())
       .then(newCollaborator => {
-        if (newCollaborator.error) {
-          alert(newCollaborator.error)
+        if (!newCollaborator.id) {
+          alert(JSON.stringify(newCollaborator))
         } else {
           dispatch(addCollaborator({
             ...newCollaborator,

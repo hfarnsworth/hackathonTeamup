@@ -11,14 +11,9 @@ export const fetchTeams = () => {
   return dispatch => {
     return fetch(teamsAPI)
       .then(resp => resp.json())
-      .then(teams => {
-        if (teams.error) {
-          alert(teams.error)
-        } else {
-          console.log(teams)
-          dispatch(loadTeams(teams))
-        }
-      })
+      .then(teams => 
+        dispatch(loadTeams(teams))
+      )
   }
 }
 
@@ -37,8 +32,8 @@ export const createTeam = team => {
     })
       .then(r => r.json())
       .then(newTeam => {
-        if (newTeam.error) {
-          alert(newTeam.error)
+        if (!newTeam.id) {
+          alert(JSON.stringify(newTeam))
         } else {
           dispatch(addTeam({
             ...newTeam,

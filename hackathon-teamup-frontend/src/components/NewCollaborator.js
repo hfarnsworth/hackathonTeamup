@@ -21,7 +21,7 @@ class NewCollaborator extends Component {
     this.setState({
       name: '',
       role: '',
-      description: ''
+      skills: ''
     })
   }
 
@@ -31,7 +31,7 @@ class NewCollaborator extends Component {
         <form onSubmit={this.handleOnSubmit} >
           <p><label>Name:</label><input name="name" type="text" onChange={this.handleOnChange} value={this.state.name} /></p>
           <p><label>Role:</label><input name="role" type="text" onChange={this.handleOnChange} value={this.state.role} /></p>
-          <p><label>Description:</label><input name="skills" type="text" onChange={this.handleOnChange} value={this.state.skills} /></p>
+          <p><label>Skills:</label><input name="skills" type="text" onChange={this.handleOnChange} value={this.state.skills} /></p>
           <input type="submit" onSubmit={this.handleOnSubmit} />
         </form>
       </div>
