@@ -77,6 +77,13 @@ button, .NavBar > a {
   margin-right: 100px;
 }
 
+.About {
+  padding: 100px;
+  justify-content: center;
+  align-items: center;
+  float: center;
+}
+
 ul {
   list-style-type: none;
   padding: 20px;
