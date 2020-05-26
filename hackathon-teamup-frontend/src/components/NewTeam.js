@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { createTeam } from '../actions/teams';
+import { withRouter } from 'react-router-dom';
 
 class NewTeam extends Component {
   state = {
@@ -16,7 +17,7 @@ class NewTeam extends Component {
 
   handleOnSubmit = e => {
     e.preventDefault();
-    this.props.createTeam(this.state)
+    this.props.createTeam(this.state,this.props.history)
     this.setState({
       name: '',
       description: ''
@@ -36,4 +37,4 @@ class NewTeam extends Component {
   }
 }
 
-export default connect(null,{ createTeam })(NewTeam)
+export default withRouter(connect(null,{ createTeam })(NewTeam))

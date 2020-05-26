@@ -8,10 +8,13 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import rootReducer from "./reducers/rootReducer.js"
 import * as serviceWorker from './serviceWorker';
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, composeEnhancers(
+export const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk)
 ));
 
@@ -19,7 +22,7 @@ const store = createStore(rootReducer, composeEnhancers(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <App />
       </Router>
     </Provider>

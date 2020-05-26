@@ -17,7 +17,7 @@ export const fetchTeams = () => {
   }
 }
 
-export const createTeam = team => {
+export const createTeam = (team,history) => {
   return dispatch => {
     const body = {
       team
@@ -39,6 +39,7 @@ export const createTeam = team => {
             ...newTeam,
             collaborators: []
           }))
+          history.push('/teams')
         }
       })
   }

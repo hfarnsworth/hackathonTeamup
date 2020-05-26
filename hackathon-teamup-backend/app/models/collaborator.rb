@@ -4,5 +4,5 @@ class Collaborator < ApplicationRecord
 
   validates :name, presence: true
   validates :role, presence: true
-  validates :description, presence: true
+  validates :skills, presence: true
 end

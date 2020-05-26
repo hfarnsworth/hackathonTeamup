@@ -17,10 +17,10 @@ export const fetchCollaborators = () => {
   }
 }
 
-export const createCollaborator = collaborator => {
+export const createCollaborator = (collaborator,history) => {
   return dispatch => {
     const body = {
-      ...collaborator
+      collaborator
     }
     return fetch(collaboratorsAPI, {
       method: "POST",
@@ -39,6 +39,7 @@ export const createCollaborator = collaborator => {
             ...newCollaborator,
             teams: [],
           }))
+          history.push('/collaborators')
         }
       })
   }

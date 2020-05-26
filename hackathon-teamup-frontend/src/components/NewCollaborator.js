@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { createCollaborator } from '../actions/collaborators';
+import { withRouter } from 'react-router-dom';
+
 
 class NewCollaborator extends Component {
   state = {
@@ -17,7 +19,7 @@ class NewCollaborator extends Component {
 
   handleOnSubmit = e => {
     e.preventDefault();
-    this.props.createCollaborator(this.state)
+    this.props.createCollaborator(this.state,this.props.history)
     this.setState({
       name: '',
       role: '',
@@ -39,4 +41,4 @@ class NewCollaborator extends Component {
   }
 }
 
-export default connect(null,{ createCollaborator })(NewCollaborator)
+export default withRouter(connect(null,{ createCollaborator })(NewCollaborator))
