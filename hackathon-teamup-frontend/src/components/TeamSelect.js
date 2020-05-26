@@ -5,7 +5,7 @@ import { createTeamMember } from '../actions/teamMembers';
 class TeamSelect extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {team: null};
+    this.state = {team: this.props.availableTeams[0]};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,8 +14,6 @@ class TeamSelect extends React.Component {
 
   handleChange(e) {
     this.setState({team: this.props.availableTeams[e.target.value]});
-    console.log(this.props.availableTeams[e.target.value])
-    console.log(this.state)
   }
 
   handleSubmit(e) {
@@ -25,22 +23,25 @@ class TeamSelect extends React.Component {
 
   render() {
     return (
-      <div className="TeamSelect">
-        <form value={this.state.value} onSubmit={this.handleSubmit}>
-          <label>
-            Select a Team:
-            <select onChange={this.handleChange}>
-              {this.props.availableTeams.map( (team,index) =>
-                <option key={index} value={index}>
-                  {team.name}
-                </option>
-              )}
-            </select>
-          </label>
-          <input type="submit" value="Join Team" />
-        </form>
-        {console.log(this.state)}
-      </div>
+      this.props.availableTeams.length
+        ?
+          <div className="TeamSelect">
+            <form value={this.state.value} onSubmit={this.handleSubmit}>
+              <label>
+                Select a Team:
+                <select onChange={this.handleChange}>
+                  {this.props.availableTeams.map( (team,index) =>
+                    <option key={index} value={index}>
+                      {team.name}
+                    </option>
+                  )}
+                </select>
+              </label>
+              <input type="submit" value="Join Team" />
+            </form>
+          </div>
+        :
+        <div>You're on all the teams</div>
     )
   }
 }
