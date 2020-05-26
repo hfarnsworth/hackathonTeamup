@@ -40,9 +40,11 @@ export const createTeam = team => {
         if (newTeam.error) {
           alert(newTeam.error)
         } else {
-          dispatch(addTeam(newTeam))
+          dispatch(addTeam({
+            ...newTeam,
+            collaborators: []
+          }))
         }
-        return newTeam
       })
   }
 }

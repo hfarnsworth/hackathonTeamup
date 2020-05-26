@@ -25,7 +25,7 @@ export const fetchCollaborators = () => {
 export const createCollaborator = collaborator => {
   return dispatch => {
     const body = {
-      collaborator
+      ...collaborator
     }
     return fetch(collaboratorsAPI, {
       method: "POST",
@@ -40,9 +40,11 @@ export const createCollaborator = collaborator => {
         if (newCollaborator.error) {
           alert(newCollaborator.error)
         } else {
-          dispatch(addCollaborator(newCollaborator))
+          dispatch(addCollaborator({
+            ...newCollaborator,
+            teams: [],
+          }))
         }
-        return newCollaborator
       })
   }
 }
