@@ -1,4 +1,5 @@
 import React from 'react'
+import TeamMembers from './TeamMembers.js';
 
 const Team = ({ team }) => {
   return (
@@ -6,11 +7,7 @@ const Team = ({ team }) => {
       ? <div className="Team">
           <h3>{team.name}</h3>
           <p>Project Description: {team.description}</p>
-          <ul>{team.collaborators.map ( collaborator =>
-            <li key={collaborator.id}>
-              {collaborator.name}
-            </li>
-          )}</ul>
+          <TeamMembers collaborators={team.collaborators} />
         </div>
       : <h3>...No Team Here...</h3>
   )

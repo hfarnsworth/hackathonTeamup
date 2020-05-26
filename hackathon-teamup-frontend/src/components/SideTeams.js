@@ -8,7 +8,7 @@ const SideTeams = ({ teams, deleteTeam }) => {
   }
 
   const teamLinks = teams.map ( team => (
-    <li key={team.id}><Link key={team.id} to={`/teams/${team.id}`}>{team.name}</Link><button onClick={() => handleDeleteClick(team)}>Delete</button></li>
+    <li key={team.id}><Link key={team.id} to={`/teams/${team.id}`}>{team.name}</Link><button onClick={() => handleDeleteClick(team)} className="delete">Delete</button></li>
   ))
 
   return(

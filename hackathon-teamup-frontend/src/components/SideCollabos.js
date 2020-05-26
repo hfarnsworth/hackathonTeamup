@@ -8,7 +8,7 @@ const SideCollabos = ({ collaborators, deleteCollaborator }) => {
   }
 
   const collaboratorLinks = collaborators.map ( collaborator => (
-    <li key={collaborator.id}><Link key={collaborator.id} to={`/collaborators/${collaborator.id}`}>{collaborator.name}</Link><button onClick={() => handleDeleteClick(collaborator)}>Delete</button></li>
+    <li key={collaborator.id}><Link key={collaborator.id} to={`/collaborators/${collaborator.id}`}>{collaborator.name}</Link><button onClick={() => handleDeleteClick(collaborator)} className="delete">Delete</button></li>
   ))
 
   return(
