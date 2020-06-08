@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
 
-    render json: @teams, include: :collaborators
+    render json: @teams, include: [:collaborators, :team_members]
   end
 
   # GET /teams/1

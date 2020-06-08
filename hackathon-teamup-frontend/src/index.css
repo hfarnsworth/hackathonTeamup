@@ -84,6 +84,32 @@ button, .NavBar > a {
   float: center;
 }
 
+.newCollaborator {
+  background-color: #ceedea;
+  position: absolute;
+  float: center;
+  border-style: outset;
+  border-width: 6px;
+  margin: 0 auto;
+  width: 250;
+  padding: 20px;
+}
+
+.newTeam {
+  background-color: #ceedea;
+  position: absolute;
+  float: center;
+  border-style: outset;
+  border-width: 6px;
+  margin: 0 auto;
+  width: 250;
+  padding: 20px;
+}
+
+.error {
+  color: red;
+}
+
 ul {
   list-style-type: none;
   padding: 20px;

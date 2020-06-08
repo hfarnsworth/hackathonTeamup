@@ -5,7 +5,7 @@ import { createTeamMember } from '../actions/teamMembers';
 class TeamSelect extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {team: this.props.availableTeams[0]};
+    this.state = {team: null};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +18,10 @@ class TeamSelect extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createTeamMember(this.props.collaborator,this.state.team)
+    if (this.state.team) {
+      this.props.createTeamMember(this.props.collaborator,this.state.team)
+      this.setState({team: null})
+    }
   }
 
   render() {
@@ -26,10 +29,11 @@ class TeamSelect extends React.Component {
       this.props.availableTeams.length
         ?
           <div className="TeamSelect">
-            <form value={this.state.value} onSubmit={this.handleSubmit}>
+            <form value={this.state.team} onSubmit={this.handleSubmit}>
               <label>
                 Select a Team:
                 <select onChange={this.handleChange}>
+                  <option value={null}>Select a Team</option>
                   {this.props.availableTeams.map( (team,index) =>
                     <option key={index} value={index}>
                       {team.name}
