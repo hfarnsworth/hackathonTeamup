@@ -24,11 +24,12 @@ class NewTeam extends Component {
     })
     const teamExists = this.props.teams.filter(team =>
       team.name.toLowerCase() === this.state.name.toLowerCase())
+      console.log(teamExists)
     if (this.state.name === ''|| this.state.description === '') {
       this.setState({
         error: "field(s) must not be left blank"
       })
-    } else if (teamExists) {
+    } else if (teamExists.length) {
       this.setState({
         error: "only one team may use this name"
       })

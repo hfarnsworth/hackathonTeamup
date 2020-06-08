@@ -7,6 +7,8 @@ const addTeam = team => ({ type: "ADD_TEAM", team })
 
 const removeTeam = team => ({ type: "DELETE_TEAM", team })
 
+const removeTeamFromCollaborators = team => ({type: "DELETE_TEAM_FROM_COLLABORATORS", team })
+
 export const fetchTeams = () => {
   return dispatch => {
     return fetch(teamsAPI)
@@ -51,5 +53,6 @@ export const deleteTeam = team => {
       method: "DELETE"
     })
     .then(dispatch(removeTeam(team)))
+    .then(dispatch(removeTeamFromCollaborators(team)))
   }
 }

@@ -1,6 +1,7 @@
 export default (state=[], action) => {
   let idx;
   let collaborators = [];
+  let teams = [];
   switch (action.type) {
     case "LOAD_TEAMS":
       return action.teams
@@ -19,6 +20,12 @@ export default (state=[], action) => {
         },
         ...state.slice(idx + 1),
      ]
+    case "DELETE_COLLABORATOR_FROM_TEAMS":
+      teams = state
+      teams.forEach(team=>
+        team.collaborators = team.collaborators.filter(collaborator=> collaborator.id !== action.collaborator.id)
+        )
+      return teams
     default:
       return state
   }

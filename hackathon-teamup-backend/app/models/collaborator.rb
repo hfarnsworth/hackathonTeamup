@@ -1,5 +1,5 @@
 class Collaborator < ApplicationRecord
-  has_many :team_members
+  has_many :team_members, dependent: :destroy
   has_many :teams, through: :team_members
 
   validates :name, presence: true
